@@ -1,0 +1,22 @@
+
+Step1 - Run this file to kill edge and chrome
+KillChromeAndEdge.xml
+
+
+Steps for Profile 1
+Command-->
+start chrome "https://booking.corbettgov.org/resort/#" --remote-debugging-port=7777 --start-maximized --new-window
+
+After that--> 
+Run the flow manually and get the OTP
+Paste OTP in DataProfile1.java file
+Run the script
+
+
+Steps for Profile 2
+Command-->
+start msedge "https://booking.corbettgov.org/resort/#"  --remote-debugging-port=8080 --start-maximized --new-window
+After that-->
+Run the flow manually and get the OTP
+Paste OTP in DataProfile2.java file
+Run the script
