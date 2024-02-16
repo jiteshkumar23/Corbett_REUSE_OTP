@@ -55,7 +55,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 		driver5 = new EdgeDriver(options);
 		js = (JavascriptExecutor) driver5;
-		driver5.manage().window().maximize();
+		//driver5.manage().window().maximize();
 		driver5.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		wait = new WebDriverWait(driver5, Duration.ofSeconds(30));
 
@@ -351,7 +351,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			select5.selectByVisibleText(IdTypeOfFirstPerson);
 			specificWait();
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-0")), IdNumberOfFirstPerson);
-			specificWait();
+			if (intNumberOfAdultsFromExcel == 1) {
+				Thread.sleep(WaitsProfile1.person1wait);
+			}
 		}
 
 		// Second Person Data Input
@@ -375,7 +377,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			select7.selectByVisibleText(IdTypeOfSecondPerson);
 			specificWait();
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-2")), IdNumberOfSecondPerson);
-			specificWait();
+			if (intNumberOfAdultsFromExcel == 2) {
+				Thread.sleep(WaitsProfile1.person2wait);
+			}
 		}
 
 		// Third Person Data Input
@@ -396,6 +400,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			select9.selectByVisibleText(IdTypeOfThirdPerson);
 			smallSleep();
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-3")), IdNumberOfThirdPerson);
+			if (intNumberOfAdultsFromExcel == 3) {
+				Thread.sleep(WaitsProfile1.person3wait);
+			}
 		}
 
 		// Fourth Person Data Input
@@ -419,6 +426,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			select11.selectByVisibleText(IdTypeOfFourthPerson);
 			smallSleep();
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-4")), IdNumberOfFourthPerson);
+			if (intNumberOfAdultsFromExcel == 4) {
+				Thread.sleep(WaitsProfile1.person4wait);
+			}
 		}
 
 		// Fifth Person Data Input
@@ -438,6 +448,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			select13.selectByVisibleText(IdTypeOfFifthPerson);
 			smallSleep();
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-5")), IdNumberOfFifthPerson);
+			if (intNumberOfAdultsFromExcel == 5) {
+				Thread.sleep(WaitsProfile1.person5wait);
+			}
 		}
 
 		// Sixth Person Data Input
@@ -456,10 +469,13 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			smallSleep();
 			select15.selectByVisibleText(IdTypeOfSixthPerson);
 			sendTextHumanLike2(driver5.findElement(By.id("id-proof-6")), IdNumberOfSixthPerson);
+			if (intNumberOfAdultsFromExcel == 6) {
+				Thread.sleep(WaitsProfile1.person6wait);
+			}
 		}
-		smallSleep();
+	
 		printDateTime("FillMemberDetailsPart4 Ended At ");
-
+		
 	}
 
 	private static void selectForeignCountry2(EdgeDriver driver5, WebDriverWait wait2,
@@ -595,26 +611,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		otpbox.click();
 		Thread.sleep(250);
 		sendTextHumanLike2(otpbox, otpReceivedFromWhatsapp);
-		switch (intNumberOfAdultsFromExcel) {
-		case 1:
-			Thread.sleep(WaitsProfile2.person1wait);
-			break;
-		case 2:
-			Thread.sleep(WaitsProfile2.person2wait);
-			break;
-		case 3:
-			Thread.sleep(WaitsProfile2.person3wait);
-			break;
-		case 4:
-			Thread.sleep(WaitsProfile2.person4wait);
-			break;
-		case 5:
-			Thread.sleep(WaitsProfile2.person5wait);
-			break;
-		case 6:
-			Thread.sleep(WaitsProfile2.person6wait);
-			break;
-		}
+		Thread.sleep(500);
 		WebElement validateOTPButton = driver5.findElement(By.id("validateOTP"));
 //		if(Integer.parseInt(NumberOfAdultsFromExcel) >= 5) {
 //			Thread.sleep(1000);
