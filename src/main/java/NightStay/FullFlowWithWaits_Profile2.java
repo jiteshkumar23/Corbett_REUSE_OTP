@@ -1238,7 +1238,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 	private static void checkForPortalClose(EdgeDriver driver5) throws InterruptedException {
 		while (closed2) {
-			if (driver5.getCurrentUrl().contains("closed")) {
+			if (driver5.getCurrentUrl().contains("closed") || driver5.getCurrentUrl().contains("maintenance")) {
 				driver5.get(URLString);
 				System.out.println("Profile 2 - Edge Browser - Current page URL is :" + driver5.getCurrentUrl());
 				Thread.sleep(1000);
@@ -1247,8 +1247,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 				driver5.get(URLString);
 				break;
 			}
+			System.out.println("Inside portal closed maintenance check ");
 		}
-
+		System.out.println("Out of portal closed maintenance check ");
 	}
 
 	private static void checkForTime(int hour1, int min1, int sec1) throws InterruptedException {

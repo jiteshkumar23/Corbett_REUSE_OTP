@@ -1,5 +1,6 @@
 Latest Note:
 
+version 2.1 - 19/02/2024 - added maintenance check
 version 2.0 - 14/02/2024 - Major update - Read existing OTP in both profiles
 version 1.8 - 27/01/2024 - Added UPI related code for Profile 2
 version 1.7 - 31/12/2023 - updated pay now button property

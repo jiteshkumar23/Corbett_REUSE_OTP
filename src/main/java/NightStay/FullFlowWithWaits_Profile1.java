@@ -1216,7 +1216,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 
 	private static void checkForPortalClose(ChromeDriver driver) throws InterruptedException {
 		while (closed) {
-			if (driver.getCurrentUrl().contains("closed")) {
+			if (driver.getCurrentUrl().contains("closed") || driver.getCurrentUrl().contains("maintenance") ) {
 				driver.get(URLString);
 				System.out.println("Profile 1 - Chrome Browser - Current page URL is :" + driver.getCurrentUrl());
 				Thread.sleep(1000);
@@ -1225,8 +1225,9 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 				driver.get(URLString);
 				break;
 			}
+		System.out.println("Inside portal closed maintenance check ");
 		}
-
+		System.out.println("Out of portal closed maintenance check ");
 	}
 
 	private static void checkForTime(int hour1, int min1, int sec1) throws InterruptedException {
