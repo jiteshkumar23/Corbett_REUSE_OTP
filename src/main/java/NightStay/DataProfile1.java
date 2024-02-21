@@ -229,8 +229,8 @@ public class DataProfile1 {
 		map1.put("IdNumberOfSixthPerson", "ARHPK1896B");
 
 		// set mobile number here
-		map1.put("mobileNumber", "9971185015");
-		map1.put("otp", "8458");
+		map1.put("mobileNumber", "9999999999");
+		map1.put("otp", "5490");
 		return map1;
 	}
 

@@ -55,7 +55,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 		driver5 = new EdgeDriver(options);
 		js = (JavascriptExecutor) driver5;
-		//driver5.manage().window().maximize();
+		// driver5.manage().window().maximize();
 		driver5.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		wait = new WebDriverWait(driver5, Duration.ofSeconds(30));
 
@@ -66,7 +66,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		System.out.println("###################   Starting   ###################");
 		System.out.println("");
 		printDateTime("Profile 2 Starting Time -->");
-		
+
 		System.out.println(checkInDateFromExcel);
 		System.out.println(checkOutDateFromExcel);
 
@@ -80,7 +80,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		// Launch website
 		driver5.get(URLString);
 		Thread.sleep(1000);
-		
+
 		// check for portal close
 		checkForPortalClose(driver5);
 
@@ -114,7 +114,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		}
 
 		// Checking and clicking check-in date
-		
+
 		boolean disabledFlag = checkINDateBeforeClicking(driver5, js, wait, checkInDateFromExcel);
 		while (disabledFlag) {
 			try {
@@ -285,7 +285,8 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 						}
 					}
 
-					WebElement bookNowtobeClicked = driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i);
+					WebElement bookNowtobeClicked = driver5.findElements(By.xpath("//button[contains(text(),'Book')]"))
+							.get(i);
 					try {
 						driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
 					} catch (Exception ee) {
@@ -295,15 +296,17 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 						} catch (Exception ee1) {
 							System.out.println("I am in second exception of Book Now button click for profile 2 " + ee);
 							System.out.println(ee1);
-							js.executeScript("arguments[0].scrollIntoView(true);", driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i));
+							js.executeScript("arguments[0].scrollIntoView(true);",
+									driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i));
 							try {
-								scrollToElementUsingMouse(driver5, driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i));
-							}
-							catch(Exception e){
-							System.out.println(e);
+								scrollToElementUsingMouse(driver5,
+										driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i));
+							} catch (Exception e) {
+								System.out.println(e);
 							}
 							Thread.sleep(1500);
-							wait.until(ExpectedConditions.elementToBeClickable(driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i)));
+							wait.until(ExpectedConditions.elementToBeClickable(
+									driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i)));
 							driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
 						}
 					}
@@ -473,9 +476,9 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 				Thread.sleep(WaitsProfile1.person6wait);
 			}
 		}
-	
+
 		printDateTime("FillMemberDetailsPart4 Ended At ");
-		
+
 	}
 
 	private static void selectForeignCountry2(EdgeDriver driver5, WebDriverWait wait2,
@@ -574,6 +577,31 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 		waitForOnlyVisibility(driver5, wait, "//div[@class='overlay d-flex text-center flex-column']");
 
+		printDateTime("Black box started displaying at this time -->");
+
+		switch (intNumberOfAdultsFromExcel) {
+		case 1:
+			Thread.sleep(WaitsProfile2.person1BoxRemove);
+			break;
+		case 2:
+			Thread.sleep(WaitsProfile2.person2BoxRemove);
+			break;
+		case 3:
+			Thread.sleep(WaitsProfile2.person3BoxRemove);
+			break;
+		case 4:
+			Thread.sleep(WaitsProfile2.person4BoxRemove);
+			break;
+		case 5:
+			Thread.sleep(WaitsProfile2.person5BoxRemove);
+			break;
+		case 6:
+			Thread.sleep(WaitsProfile2.person6BoxRemove);
+			break;
+		}
+
+		printDateTime("Wait ended at this time -->");
+
 		// Find the WebElement you want to delete
 		WebElement elementToDelete = driver5.findElement(By.xpath("//div[@id='mobile-otp-overlay']"));
 
@@ -581,14 +609,14 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver5;
 		jsExecutor.executeScript("arguments[0].remove();", elementToDelete);
 
-//		String otpMessageReceivedFromWhatsapp = OTPReaderProfile2.getMeOTP2(hourOfClickingOTPButton,
-//				minuteOfClickingOTPButton);
-//
-//		WebDriverWait waitA = new WebDriverWait(driver5, Duration.ofSeconds(120));
-//		waitA.until(ExpectedConditions.attributeContains(driver5.findElement(By.id("mobile-otp-overlay")), "class",
-//				"none"));
+		printDateTime("Black box removed at this time -->");
 
 		WebElement otpbox = driver5.findElement(By.id("otp"));
+
+		// this will enable the otp box
+		String scriptToDeleteAttribute = "arguments[0].removeAttribute(arguments[1]);";
+		jsExecutor.executeScript(scriptToDeleteAttribute, otpbox, "disabled");
+
 		scrollToElementUsingMouse(driver5, otpbox);
 		wait.until(ExpectedConditions.elementToBeClickable(otpbox));
 		otpbox.clear();
@@ -596,50 +624,32 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 		String otpReceivedFromWhatsapp = otp;
 
-//		Pattern pattern = Pattern.compile("PIN\\s*:\\s*(\\d+)");
-//		Matcher matcher = pattern.matcher(otpMessageReceivedFromWhatsapp);
-//
-//		if (matcher.find()) {
-//			String pin = matcher.group(1);
-//			System.out.println("Found PIN: " + pin);
-//			otpReceivedFromWhatsapp = pin;
-//		} else {
-//			System.out.println("PIN not found in the input.");
-//		}
-
 		System.out.println("otp received from whatsapp is " + otpReceivedFromWhatsapp);
 		otpbox.click();
 		Thread.sleep(250);
 		sendTextHumanLike2(otpbox, otpReceivedFromWhatsapp);
-		Thread.sleep(500);
+		Thread.sleep(250);
 		WebElement validateOTPButton = driver5.findElement(By.id("validateOTP"));
-//		if(Integer.parseInt(NumberOfAdultsFromExcel) >= 5) {
-//			Thread.sleep(1000);
-//		}
+
 		validateOTPButton.click();
 
 		WebDriverWait wait2 = new WebDriverWait(driver5, Duration.ofSeconds(120));
 		wait2.until(ExpectedConditions.alertIsPresent());
 
-		Thread.sleep(1500);// 2255
-//		if(Integer.parseInt(NumberOfAdultsFromExcel) >= 5) {
-//			Thread.sleep(1000);
-//		}
-
 		Alert alert = driver5.switchTo().alert();
 
 		String messagefromPopup = alert.getText();
-		System.out.println("ALERT MESSAGE Profile 2 -->"+messagefromPopup);
+		System.out.println("ALERT MESSAGE Profile 2 -->" + messagefromPopup);
 
 		if (messagefromPopup.toLowerCase().contains("successful"))
 
 		{
 			alert.accept();
 			scrollDownUsingMouse(driver5);
-			Thread.sleep(2000);
+			Thread.sleep(500);
 			WebElement payNowButton = driver5.findElement(By.xpath("//button[contains(text(),'Pay Now')]"));
 			wait.until(ExpectedConditions.elementToBeClickable(payNowButton));
-			scrollToElementUsingMouse(driver5, payNowButton);
+			//scrollToElementUsingMouse(driver5, payNowButton);
 			payNowButton.click();
 			System.out.println("");
 			System.out.println("Flow successfully completed");
@@ -785,35 +795,36 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 	private static void clickOkonPopup(EdgeDriver driver5, WebDriverWait wait) {
 		String popupStatus = driver5.findElement(By.id("toast-alert")).getAttribute("class");
-		System.out.println("Profile 2 -->"+popupStatus);
+		System.out.println("Profile 2 -->" + popupStatus);
 		try {
 			if (driver5.findElement(By.id("toast-alert")).getAttribute("class").toLowerCase().contains("show")) {
-				
-				while(driver5.findElement(By.id("toast-alert")).getAttribute("class").toLowerCase().contains("show")) {
-				System.out.println("I am in while loop Profile 2");
-				System.out.println(driver5.findElement(By.id("toast-alert")).getAttribute("class"));
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()=\"Ok\"]")));
-				//driver5.findElement(By.xpath("//button[text()=\"Ok\"]")).click();
-				js.executeScript("arguments[0].click();", driver5.findElement(By.xpath("//button[text()=\"Ok\"]")));
+
+				while (driver5.findElement(By.id("toast-alert")).getAttribute("class").toLowerCase().contains("show")) {
+					System.out.println("I am in while loop Profile 2");
+					System.out.println(driver5.findElement(By.id("toast-alert")).getAttribute("class"));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()=\"Ok\"]")));
+					// driver5.findElement(By.xpath("//button[text()=\"Ok\"]")).click();
+					js.executeScript("arguments[0].click();", driver5.findElement(By.xpath("//button[text()=\"Ok\"]")));
 				}
 
-			}else {
-				System.out.println("Profile 2 seen in else block is -->"+driver5.findElement(By.id("toast-alert")).getAttribute("class"));
+			} else {
+				System.out.println("Profile 2 seen in else block is -->"
+						+ driver5.findElement(By.id("toast-alert")).getAttribute("class"));
 			}
 			System.out.println("Final value of popup after exiting while loop for Profile 2 is : "
 					+ driver5.findElement(By.id("toast-alert")).getAttribute("class"));
 		} catch (Exception e) {
-			System.out.println("I am catch block profile 2 "+e);
+			System.out.println("I am catch block profile 2 " + e);
 			try {
 				if (driver5.findElement(By.id("toast-alert")).getAttribute("class").toLowerCase().contains("show")) {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()=\"Ok\"]")));
-				//	driver5.findElement(By.xpath("//button[text()=\"Ok\"]")).click();
+					// driver5.findElement(By.xpath("//button[text()=\"Ok\"]")).click();
 					js.executeScript("arguments[0].click();", driver5.findElement(By.xpath("//button[text()=\"Ok\"]")));
 
 				}
 			} catch (Exception e1) {
 				System.out.println(e1);
-				
+
 			}
 		}
 	}
@@ -846,7 +857,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 			// Send keyboard keys for scrolling (e.g., Arrow Down)
 			for (int i = 0; i < 15; i++) {
-				focusElement.sendKeys(Keys.ARROW_DOWN);
+				focusElement.sendKeys(Keys.PAGE_DOWN);
 				Thread.sleep(10);
 			}
 

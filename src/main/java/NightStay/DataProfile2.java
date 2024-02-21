@@ -198,7 +198,7 @@ public class DataProfile2 {
 		map1.put("IdNumberOfSecondPerson", "ARHPK1892B");
 
 		// Third Person Details
-		map1.put("NameOfThirdPerson", "ThirdPerson");
+		map1.put("NameOfThirdPerson", "ThirdPerson kumar");
 		map1.put("AgeOfThirdPerson", "33");
 		map1.put("GenderOfThirdPerson", "Female");
 		map1.put("NationalityOfThirdPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior
@@ -208,7 +208,7 @@ public class DataProfile2 {
 		map1.put("IdNumberOfThirdPerson", "ARHPK1893B");
 
 		// Fourth Person Details
-		map1.put("NameOfFourthPerson", "FourthPerson");
+		map1.put("NameOfFourthPerson", "FourthPerson kumar");
 		map1.put("AgeOfFourthPerson", "34");
 		map1.put("GenderOfFourthPerson", "Female");
 		map1.put("NationalityOfFourthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior
@@ -218,7 +218,7 @@ public class DataProfile2 {
 		map1.put("IdNumberOfFourthPerson", "ARHPK1894B");
 
 		// Fifth Person Details
-		map1.put("NameOfFifthPerson", "FifthPerson");
+		map1.put("NameOfFifthPerson", "FifthPerson kumar");
 		map1.put("AgeOfFifthPerson", "35");
 		map1.put("GenderOfFifthPerson", "Female");
 		map1.put("NationalityOfFifthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior
@@ -228,7 +228,7 @@ public class DataProfile2 {
 		map1.put("IdNumberOfFifthPerson", "ARHPK1895B");
 
 		// Sixth Person Details
-		map1.put("NameOfSixthPerson", "SixthPerson");
+		map1.put("NameOfSixthPerson", "SixthPerson kumar");
 		map1.put("AgeOfSixthPerson", "36");
 		map1.put("GenderOfSixthPerson", "Female");
 		map1.put("NationalityOfSixthPerson", "Foreigner");// valid values are "Indian","Foreigner","Student","Senior
@@ -238,10 +238,10 @@ public class DataProfile2 {
 		map1.put("IdNumberOfSixthPerson", "ARHPK1896B");
 
 		// set mobile number here
-		map1.put("mobileNumber", "9911474918");
+		map1.put("mobileNumber", "9999999999");
 		map1.put("UPI_ID", "9268565533@paytm");
 		map1.put("Enable_UPI_ID", "NO"); // Valid Values "YES", "NO"
-		map1.put("otp", "2976");
+		map1.put("otp", "5687");
 		return map1;
 	}
 

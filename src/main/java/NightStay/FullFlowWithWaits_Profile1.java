@@ -570,56 +570,64 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		scrollToElementUsingMouse(driver, whatapplogo);
 
 		waitForOnlyVisibility(driver, wait, "//div[@class='overlay d-flex text-center flex-column']");
-
+		
+		printDateTime("Black box started displaying at this time -->");
+		
+		switch(intNumberOfAdultsFromExcel) {
+		case 1:
+			Thread.sleep(WaitsProfile1.person1BoxRemove);
+			break;
+		case 2:
+			Thread.sleep(WaitsProfile1.person2BoxRemove);
+			break;
+		case 3:
+			Thread.sleep(WaitsProfile1.person3BoxRemove);
+			break;
+		case 4:
+			Thread.sleep(WaitsProfile1.person4BoxRemove);
+			break;
+		case 5:
+			Thread.sleep(WaitsProfile1.person5BoxRemove);
+			break;
+		case 6:
+			Thread.sleep(WaitsProfile1.person6BoxRemove);
+			break;
+		}
+		
+		printDateTime("Wait ended at this time -->");
+		
 		// Find the WebElement you want to delete
 		WebElement elementToDelete = driver.findElement(By.xpath("//div[@id='mobile-otp-overlay']"));
 
 		// Use JavascriptExecutor to delete the element
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].remove();", elementToDelete);
-
-		// String otpMessageReceivedFromWhatsapp =
-		// OTPReaderProfile1.getMeOTP(hourOfClickingOTPButton,
-//				minuteOfClickingOTPButton);
-//		WebDriverWait waitA = new WebDriverWait(driver, Duration.ofSeconds(120));
-//		waitA.until(
-//				ExpectedConditions.attributeContains(driver.findElement(By.id("mobile-otp-overlay")), "class", "none"));
+		
+		printDateTime("Black box removed at this time -->");
+		
 		WebElement otpbox = driver.findElement(By.id("otp"));
+		
+		//this will enable the otp box
+		String scriptToDeleteAttribute = "arguments[0].removeAttribute(arguments[1]);";
+        jsExecutor.executeScript(scriptToDeleteAttribute, otpbox, "disabled");
+		
 		scrollToElementUsingMouse(driver, otpbox);
 		wait.until(ExpectedConditions.elementToBeClickable(otpbox));
 		otpbox.clear();
 		otpbox.click();
 		String otpReceivedFromWhatsapp = otp;
 
-//		Pattern pattern = Pattern.compile("PIN\\s*:\\s*(\\d+)");
-//		Matcher matcher = pattern.matcher(otpMessageReceivedFromWhatsapp);
-//
-//		if (matcher.find()) {
-//			String pin = matcher.group(1);
-//			System.out.println("Found PIN: " + pin);
-//			otpReceivedFromWhatsapp = pin;
-//		} else {
-//			System.out.println("PIN not found in the input.");
-//		}
 
 		System.out.println("otp received from whatsapp is " + otpReceivedFromWhatsapp);
 		otpbox.click();
 		Thread.sleep(250);
 		sendTextHumanLike(otpbox, otpReceivedFromWhatsapp);
-		Thread.sleep(500);
+		Thread.sleep(250);
 		WebElement validateOTPButton = driver.findElement(By.id("validateOTP"));
-//		if(Integer.parseInt(NumberOfAdultsFromExcel) >= 5) {
-//			Thread.sleep(1000);
-//		}
 		validateOTPButton.click();
 
 		WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(120));
 		wait2.until(ExpectedConditions.alertIsPresent());
-
-		Thread.sleep(1500);// 2255
-//		if(Integer.parseInt(NumberOfAdultsFromExcel) >= 5) {
-//			Thread.sleep(1000);
-//		}
 
 		Alert alert = driver.switchTo().alert();
 
@@ -631,10 +639,10 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 		{
 			alert.accept();
 			scrollDownUsingMouse(driver);
-			Thread.sleep(1500);
+			Thread.sleep(500);
 			WebElement payNowButton = driver.findElement(By.xpath("//button[contains(text(),'Pay Now')]"));
 			wait.until(ExpectedConditions.elementToBeClickable(payNowButton));
-			scrollToElementUsingMouse(driver, payNowButton);
+			//scrollToElementUsingMouse(driver, payNowButton);
 			payNowButton.click();
 			System.out.println("");
 			System.out.println("Flow successfully completed");
@@ -823,8 +831,8 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			actions.moveToElement(focusElement).click().build().perform();
 
 			// Send keyboard keys for scrolling (e.g., Arrow Down)
-			for (int i = 0; i < 15; i++) {
-				focusElement.sendKeys(Keys.ARROW_DOWN);
+			for (int i = 0; i < 1; i++) {
+				focusElement.sendKeys(Keys.PAGE_DOWN);
 
 			}
 
