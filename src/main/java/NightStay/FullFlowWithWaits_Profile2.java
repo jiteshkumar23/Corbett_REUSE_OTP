@@ -224,7 +224,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		// click on Find Button
 		sleepForSeconds();
 		driver5.findElement(By.xpath("//button[@id='go-button']")).click();
-		Thread.sleep(1500);
+		Thread.sleep(500);
 
 		printDateTime("FillFormPart1AndClickFindPart2 Ended At ");
 	}
@@ -288,11 +288,14 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 					WebElement bookNowtobeClicked = driver5.findElements(By.xpath("//button[contains(text(),'Book')]"))
 							.get(i);
 					try {
-						driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
+						js.executeScript("arguments[0].click();", bookNowtobeClicked);
+					//	driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
 					} catch (Exception ee) {
 						try {
+							Thread.sleep(1000);
 							System.out.println("I am in first exception of Book Now button click for profile 2 " + ee);
-							driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
+							//driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
+							js.executeScript("arguments[0].click();", bookNowtobeClicked);
 						} catch (Exception ee1) {
 							System.out.println("I am in second exception of Book Now button click for profile 2 " + ee);
 							System.out.println(ee1);
@@ -307,7 +310,8 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 							Thread.sleep(1500);
 							wait.until(ExpectedConditions.elementToBeClickable(
 									driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i)));
-							driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
+							//driver5.findElements(By.xpath("//button[contains(text(),'Book')]")).get(i).click();
+							js.executeScript("arguments[0].click();", bookNowtobeClicked);
 						}
 					}
 					found = true;

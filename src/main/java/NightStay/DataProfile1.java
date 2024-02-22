@@ -153,7 +153,7 @@ public class DataProfile1 {
 		map1.put("firefoxProfileNameString", "Nitesh");
 
 		// set room priority here
-		map1.put("roomPrioirty1", "Morghati");
+		map1.put("roomPrioirty1", "Bijrani:double");
 		map1.put("roomPrioirty2", "Pakhro");
 		map1.put("roomPrioirty3", "Rathuwadhab");
 		map1.put("roomPrioirty4", "Mudiapani");
@@ -166,8 +166,8 @@ public class DataProfile1 {
 		map1.put("URLString", "https://booking.corbettgov.org/resort/#");
 
 		// set dates , number of adults and number of rooms here
-		map1.put("checkInDateFromExcel", "20-Mar-2024");
-		map1.put("checkOutDateFromExcel", "21-Mar-2024");
+		map1.put("checkInDateFromExcel", "02-Apr-2024");
+		map1.put("checkOutDateFromExcel", "03-Apr-2024");
 		map1.put("NumberOfAdultsFromExcel", "1");
 		map1.put("numberOfRooms", "1");
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
@@ -229,8 +229,8 @@ public class DataProfile1 {
 		map1.put("IdNumberOfSixthPerson", "ARHPK1896B");
 
 		// set mobile number here
-		map1.put("mobileNumber", "9999999999");
-		map1.put("otp", "5490");
+		map1.put("mobileNumber", "9811599798");
+		map1.put("otp", "8679");
 		return map1;
 	}
 

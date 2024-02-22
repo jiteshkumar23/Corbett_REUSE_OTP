@@ -157,7 +157,7 @@ public class DataProfile2 {
 		map1.put("firefoxProfileNameString", "default");
 
 		// set room priority here   //Special case --> Bijrani:single , Bijrani:double , Bijrani:four
-		map1.put("roomPrioirty1", "Morghati");
+		map1.put("roomPrioirty1", "Bijrani:double");
 		map1.put("roomPrioirty2", "Bijrani:double");
 		map1.put("roomPrioirty3", "Bijrani:single");
 		map1.put("roomPrioirty4", "Bijrani:four");
@@ -170,8 +170,8 @@ public class DataProfile2 {
 		map1.put("URLString", "https://booking.corbettgov.org/resort/#");
 
 		// set dates , number of adults and number of rooms here
-		map1.put("checkInDateFromExcel", "17-Mar-2024");
-		map1.put("checkOutDateFromExcel", "18-Mar-2024");
+		map1.put("checkInDateFromExcel", "02-Apr-2024");
+		map1.put("checkOutDateFromExcel", "03-Apr-2024");
 		map1.put("NumberOfAdultsFromExcel", "1");
 		map1.put("numberOfRooms", "1");
 		map1.put("numberOfChildren", "0");// valid values are "0", "1","2"
