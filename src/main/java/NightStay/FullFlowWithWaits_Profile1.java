@@ -350,7 +350,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID1.click();
 			Select select5 = new Select(dropdownID1);
 			smallSleep();
-			select5.selectByVisibleText(IdTypeOfFirstPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select5.getOptions()) {
+	            if (option.getText().contains(IdTypeOfFirstPerson)) {
+	            	select5.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			specificWait();
 			sendTextHumanLike(driver.findElement(By.id("id-proof-0")), IdNumberOfFirstPerson);
 			if (intNumberOfAdultsFromExcel == 1) {
@@ -376,7 +382,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID2.click();
 			Select select7 = new Select(dropdownID2);
 			smallSleep();
-			select7.selectByVisibleText(IdTypeOfSecondPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select7.getOptions()) {
+	            if (option.getText().contains(IdTypeOfSecondPerson)) {
+	            	select7.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			specificWait();
 			sendTextHumanLike(driver.findElement(By.id("id-proof-2")), IdNumberOfSecondPerson);
 			if (intNumberOfAdultsFromExcel == 2) {
@@ -399,7 +411,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID3.click();
 			Select select9 = new Select(dropdownID3);
 			smallSleep();
-			select9.selectByVisibleText(IdTypeOfThirdPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select9.getOptions()) {
+	            if (option.getText().contains(IdTypeOfThirdPerson)) {
+	            	select9.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			smallSleep();
 			sendTextHumanLike(driver.findElement(By.id("id-proof-3")), IdNumberOfThirdPerson);
 			if (intNumberOfAdultsFromExcel == 3) {
@@ -426,7 +444,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID4.click();
 			Select select11 = new Select(dropdownID4);
 			smallSleep();
-			select11.selectByVisibleText(IdTypeOfFourthPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select11.getOptions()) {
+	            if (option.getText().contains(IdTypeOfFourthPerson)) {
+	            	select11.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			smallSleep();
 			sendTextHumanLike(driver.findElement(By.id("id-proof-4")), IdNumberOfFourthPerson);
 			if (intNumberOfAdultsFromExcel == 4) {
@@ -449,7 +473,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID5.click();
 			Select select13 = new Select(dropdownID5);
 			smallSleep();
-			select13.selectByVisibleText(IdTypeOfFifthPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select13.getOptions()) {
+	            if (option.getText().contains(IdTypeOfFifthPerson)) {
+	            	select13.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			smallSleep();
 			sendTextHumanLike(driver.findElement(By.id("id-proof-5")), IdNumberOfFifthPerson);
 			if (intNumberOfAdultsFromExcel == 5) {
@@ -471,7 +501,13 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			dropdownID6.click();
 			Select select15 = new Select(dropdownID6);
 			smallSleep();
-			select15.selectByVisibleText(IdTypeOfSixthPerson);
+			// Iterate through the options and select the one containing the desired partial text
+	        for (WebElement option : select15.getOptions()) {
+	            if (option.getText().contains(IdTypeOfSixthPerson)) {
+	            	select15.selectByVisibleText(option.getText());
+	                break; // Break the loop once the desired option is found
+	            }
+	        }
 			sendTextHumanLike(driver.findElement(By.id("id-proof-6")), IdNumberOfSixthPerson);
 			if (intNumberOfAdultsFromExcel == 6) {
 				Thread.sleep(WaitsProfile1.person6wait);
