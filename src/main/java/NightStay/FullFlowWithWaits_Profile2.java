@@ -339,20 +339,20 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		intNumberOfAdultsFromExcel = Integer.parseInt(NumberOfAdultsFromExcel);
 		if (intNumberOfAdultsFromExcel >= 1) {
 
-			sendTextHumanLike2(driver5.findElement(By.id("name-0")), nameOfFirstPersonFromExcel);
-			specificWait();
-			sendTextHumanLike2(driver5.findElement(By.id("age-0")), ageOfFirstPersonFromExcel);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-0")), nameOfFirstPersonFromExcel);
 			specificWait();
 			WebElement dropdownSex1 = driver5.findElement(By.id("gender-0"));
 			dropdownSex1.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select3 = new Select(dropdownSex1);
 			select3.selectByVisibleText(genderOfFirstPersonFromExcel);
 			specificWait();
-			selectForeignCountry2(driver5, wait, nationalityOfFirstPersonFromExcel, "country-pax-0",
-					countryFirstPerson);
+			selectForeignCountry2(driver5, wait, nationalityOfFirstPersonFromExcel, "country-pax-0",countryFirstPerson);
+			specificWait();
 			WebElement dropdownID1 = driver5.findElement(By.id("id-type-0"));
 			smallSleep();
 			dropdownID1.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select5 = new Select(dropdownID1);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -363,28 +363,31 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	            }
 	        }
 			specificWait();
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-0")), IdNumberOfFirstPerson);
+			sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-0")), IdNumberOfFirstPerson);
+			specificWait();
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-0")), ageOfFirstPersonFromExcel);
 			if (intNumberOfAdultsFromExcel == 1) {
-				Thread.sleep(WaitsProfile1.person1wait);
+				Thread.sleep(WaitsProfile2.person1wait);
 			}
 		}
 
 		// Second Person Data Input
 		if (intNumberOfAdultsFromExcel >= 2) {
 
-			sendTextHumanLike2(driver5.findElement(By.id("name-2")), NameOfSecondPerson);
-			specificWait();
-			sendTextHumanLike2(driver5.findElement(By.id("age-2")), AgeOfSecondPerson);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-2")), NameOfSecondPerson);
 			specificWait();
 			WebElement dropdownSex2 = driver5.findElement(By.id("gender-2"));
 			dropdownSex2.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select6 = new Select(dropdownSex2);
 			select6.selectByVisibleText(GenderOfSecondPerson);
 			specificWait();
 			selectForeignCountry2(driver5, wait, NationalityOfSecondPerson, "country-pax-2", countrySecondPerson);
+			specificWait();
 			WebElement dropdownID2 = driver5.findElement(By.id("id-type-2"));
 			smallSleep();
 			dropdownID2.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select7 = new Select(dropdownID2);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -394,26 +397,33 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	                break; // Break the loop once the desired option is found
 	            }
 	        }
+	        specificWait();
+			sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-2")), IdNumberOfSecondPerson);
 			specificWait();
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-2")), IdNumberOfSecondPerson);
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-2")), AgeOfSecondPerson);
 			if (intNumberOfAdultsFromExcel == 2) {
-				Thread.sleep(WaitsProfile1.person2wait);
+				Thread.sleep(WaitsProfile2.person2wait);
 			}
 		}
 
 		// Third Person Data Input
 		if (intNumberOfAdultsFromExcel >= 3) {
 
-			sendTextHumanLike2(driver5.findElement(By.id("name-3")), NameOfThirdPerson);
-			sendTextHumanLike2(driver5.findElement(By.id("age-3")), AgeOfThirdPerson);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-3")), NameOfThirdPerson);
+			specificWait();
+			
 			WebElement dropdownSex3 = driver5.findElement(By.id("gender-3"));
 			dropdownSex3.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select8 = new Select(dropdownSex3);
 			select8.selectByVisibleText(GenderOfThirdPerson);
+			specificWait();
 			selectForeignCountry2(driver5, wait, NationalityOfThirdPerson, "country-pax-3", countryThirdPerson);
+			specificWait();
 			WebElement dropdownID3 = driver5.findElement(By.id("id-type-3"));
 			smallSleep();
 			dropdownID3.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select9 = new Select(dropdownID3);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -423,10 +433,12 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	                break; // Break the loop once the desired option is found
 	            }
 	        }
-			smallSleep();
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-3")), IdNumberOfThirdPerson);
+	        specificWait();
+			sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-3")), IdNumberOfThirdPerson);
+			specificWait();
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-3")), AgeOfThirdPerson);
 			if (intNumberOfAdultsFromExcel == 3) {
-				Thread.sleep(WaitsProfile1.person3wait);
+				Thread.sleep(WaitsProfile2.person3wait);
 			}
 		}
 
@@ -436,16 +448,20 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 			Thread.sleep(500);
 			scrollToTop(driver5, 2);
 			Thread.sleep(500);
-			sendTextHumanLike2(driver5.findElement(By.id("name-4")), NameOfFourthPerson);
-			sendTextHumanLike2(driver5.findElement(By.id("age-4")), AgeOfFourthPerson);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-4")), NameOfFourthPerson);
+			specificWait();
 			WebElement dropdownSex4 = driver5.findElement(By.id("gender-4"));
 			dropdownSex4.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select10 = new Select(dropdownSex4);
 			select10.selectByVisibleText(GenderOfFourthPerson);
+			specificWait();
 			selectForeignCountry2(driver5, wait, NationalityOfFourthPerson, "country-pax-4", countryFourthPerson);
+			specificWait();
 			WebElement dropdownID4 = driver5.findElement(By.id("id-type-4"));
 			smallSleep();
 			dropdownID4.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select11 = new Select(dropdownID4);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -455,25 +471,32 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	                break; // Break the loop once the desired option is found
 	            }
 	        }
-			smallSleep();
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-4")), IdNumberOfFourthPerson);
+	        specificWait();
+			sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-4")), IdNumberOfFourthPerson);
+			specificWait();
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-4")), AgeOfFourthPerson);
 			if (intNumberOfAdultsFromExcel == 4) {
-				Thread.sleep(WaitsProfile1.person4wait);
+				Thread.sleep(WaitsProfile2.person4wait);
 			}
 		}
 
 		// Fifth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 5) {
-			sendTextHumanLike2(driver5.findElement(By.id("name-5")), NameOfFifthPerson);
-			sendTextHumanLike2(driver5.findElement(By.id("age-5")), AgeOfFifthPerson);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-5")), NameOfFifthPerson);
+			specificWait();
+			
 			WebElement dropdownSex5 = driver5.findElement(By.id("gender-5"));
 			dropdownSex5.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select12 = new Select(dropdownSex5);
 			select12.selectByVisibleText(GenderOfFifthPerson);
+			specificWait();
 			selectForeignCountry2(driver5, wait, NationalityOfFifthPerson, "country-pax-5", countryFifthPerson);
+			specificWait();
 			WebElement dropdownID5 = driver5.findElement(By.id("id-type-5"));
 			smallSleep();
 			dropdownID5.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select13 = new Select(dropdownID5);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -483,25 +506,32 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	                break; // Break the loop once the desired option is found
 	            }
 	        }
-			smallSleep();
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-5")), IdNumberOfFifthPerson);
+	        specificWait();
+			sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-5")), IdNumberOfFifthPerson);
+			specificWait();
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-5")), AgeOfFifthPerson);
 			if (intNumberOfAdultsFromExcel == 5) {
-				Thread.sleep(WaitsProfile1.person5wait);
+				Thread.sleep(WaitsProfile2.person5wait);
 			}
 		}
 
 		// Sixth Person Data Input
 		if (intNumberOfAdultsFromExcel >= 6) {
-			sendTextHumanLike2(driver5.findElement(By.id("name-6")), NameOfSixthPerson);
-			sendTextHumanLike2(driver5.findElement(By.id("age-6")), AgeOfSixthPerson);
+			sendTextHumanLikeName2(driver5.findElement(By.id("name-6")), NameOfSixthPerson);
+			specificWait();
+			
 			WebElement dropdownSex6 = driver5.findElement(By.id("gender-6"));
 			dropdownSex6.click();
+			Thread.sleep(WaitsProfile2.delayInGenderDropdown);
 			Select select14 = new Select(dropdownSex6);
 			select14.selectByVisibleText(GenderOfFifthPerson);
+			specificWait();
 			selectForeignCountry2(driver5, wait, NationalityOfSixthPerson, "country-pax-6", countrySixthPerson);
+			specificWait();
 			WebElement dropdownID6 = driver5.findElement(By.id("id-type-6"));
 			smallSleep();
 			dropdownID6.click();
+			Thread.sleep(WaitsProfile2.delayInProofDropdown);
 			Select select15 = new Select(dropdownID6);
 			smallSleep();
 			// Iterate through the options and select the one containing the desired partial text
@@ -511,9 +541,12 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 	                break; // Break the loop once the desired option is found
 	            }
 	        }
-			sendTextHumanLike2(driver5.findElement(By.id("id-proof-6")), IdNumberOfSixthPerson);
+	        specificWait();
+	        sendTextHumanLikeID2(driver5.findElement(By.id("id-proof-6")), IdNumberOfSixthPerson);
+			specificWait();
+			sendTextHumanLikeAge2(driver5.findElement(By.id("age-6")), AgeOfSixthPerson);
 			if (intNumberOfAdultsFromExcel == 6) {
-				Thread.sleep(WaitsProfile1.person6wait);
+				Thread.sleep(WaitsProfile2.person6wait);
 			}
 		}
 
@@ -528,42 +561,54 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 				if (countryPerson.equalsIgnoreCase("USA")) {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='A']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"america\"]")))).click();
 				}
 
 				else if (countryPerson.equalsIgnoreCase("United Kingdom")) {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='U']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"united-kingdom\"]"))))
 							.click();
 				} else if (countryPerson.equalsIgnoreCase("Canada")) {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='C']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"canada\"]")))).click();
 				} else if (countryPerson.equalsIgnoreCase("Australia")) {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='A']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"australia\"]"))))
 							.click();
 				} else if (countryPerson.equalsIgnoreCase("Italy")) {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='I']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"italy\"]")))).click();
 				} else {
 					driver5.findElement(By.id(locator)).click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions.visibilityOf(driver5.findElement(By.xpath("//li/a[text()='A']"))))
 							.click();
+					Thread.sleep(WaitsProfile2.delayInCountryDropdown);
 					wait.until(ExpectedConditions
 							.visibilityOf(driver5.findElement(By.xpath("//li/a[@data-country=\"america\"]")))).click();
 				}
@@ -587,7 +632,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		mobileNumberBox.click();
 		mobileNumberBox.clear();
 
-		sendTextHumanLike2(mobileNumberBox, mobileNumber);
+		sendTextHumanLikeMobileNumber2(mobileNumberBox, mobileNumber);
 		WebElement whatapplogo = driver5.findElement(By.xpath("//img[@alt=\"WhatsApp Logo\"]"));
 		scrollToElementUsingMouse(driver5, whatapplogo);
 		whatapplogo.click();
@@ -667,7 +712,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		System.out.println("otp received from whatsapp is " + otpReceivedFromWhatsapp);
 		otpbox.click();
 		Thread.sleep(250);
-		sendTextHumanLike2(otpbox, otpReceivedFromWhatsapp);
+		sendTextHumanLikeOtp2(otpbox, otpReceivedFromWhatsapp);
 		Thread.sleep(250);
 		WebElement validateOTPButton = driver5.findElement(By.id("validateOTP"));
 
@@ -1246,7 +1291,7 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 
 	private static void printDateTime(String msg) {
 		// Create a SimpleDateFormat instance with the desired date and time format
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		// Format and print the current date and time
 		System.out.println(msg + dateFormat.format(new Date()));
 	}
@@ -1273,14 +1318,96 @@ public class FullFlowWithWaits_Profile2 extends DataProfile2 {
 		}
 	}
 
-	public static void sendTextHumanLike2(WebElement element, String text) {
-//		String[] arrayMobile = text.split("");
-//		for (String a : arrayMobile) {
-//			element.sendKeys(a);
-//		}
+	public static void sendTextHumanLike(WebElement element, String text) throws InterruptedException {
+		String[] arrayMobile = text.split("");
 		element.clear();
-		element.sendKeys(text);
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+		}
+//		element.clear();
+//		element.sendKeys(text);
 	}
+	
+	public static void sendTextHumanLikeName2(WebElement element, String text) throws InterruptedException {
+		int timePerCharacter = WaitsProfile2.totalTimeForTypingName / text.length();
+		String[] arrayMobile = text.split("");
+		element.clear();
+		//printDateTime("Start time of printing :");
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+			try {
+                Thread.sleep(timePerCharacter);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+		}
+		//printDateTime("End time of printing :");
+	}
+	
+	public static void sendTextHumanLikeID2(WebElement element, String text) throws InterruptedException {
+		int timePerCharacter = WaitsProfile2.totalTimeForTypingID / text.length();
+		String[] arrayMobile = text.split("");
+		element.clear();
+		//printDateTime("Start time of printing :");
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+			try {
+                Thread.sleep(timePerCharacter);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+		}
+		//printDateTime("End time of printing :");
+	}
+	
+	public static void sendTextHumanLikeAge2(WebElement element, String text) throws InterruptedException {
+		int timePerCharacter = WaitsProfile2.totalTimeForTypingAge / text.length();
+		String[] arrayMobile = text.split("");
+		element.clear();
+		//printDateTime("Start time of printing :");
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+			try {
+                Thread.sleep(timePerCharacter);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+		}
+		//printDateTime("End time of printing :");
+	}
+	
+	public static void sendTextHumanLikeMobileNumber2(WebElement element, String text) throws InterruptedException {
+		int timePerCharacter = WaitsProfile2.totalTimeForTypingMobileNumber / text.length();
+		String[] arrayMobile = text.split("");
+		element.clear();
+		//printDateTime("Start time of printing :");
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+			try {
+                Thread.sleep(timePerCharacter);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+		}
+		//printDateTime("End time of printing :");
+	}
+	
+	public static void sendTextHumanLikeOtp2(WebElement element, String text) throws InterruptedException {
+		int timePerCharacter = WaitsProfile2.totalTimeForTypingOtp / text.length();
+		String[] arrayMobile = text.split("");
+		element.clear();
+		//printDateTime("Start time of printing :");
+		for (String a : arrayMobile) {
+			element.sendKeys(a);
+			try {
+                Thread.sleep(timePerCharacter);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+		}
+		//printDateTime("End time of printing :");
+	}
+
 
 	private static void specificWait() throws InterruptedException {
 		Thread.sleep(20);

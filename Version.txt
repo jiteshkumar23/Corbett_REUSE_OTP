@@ -1,5 +1,6 @@
 Latest Note:
 
+version 2.4 - 17/03/2024 - (this commit and last commit) updated human like typing in the form fields within a fixed time , add delay in dropdowns and updated the sequence of entering data in profile 2 in this commit and profile 1 in last commit
 version 2.3 - 09/03/2024 - updated with partial text match in Identity Proof type dropdown
 version 2.2 - 22/02/2024 - updated book now button click to be faster
 version 2.1 - 19/02/2024 - added maintenance check, scrolling enhanced and sleep time reduced

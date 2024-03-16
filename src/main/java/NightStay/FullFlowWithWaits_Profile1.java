@@ -377,6 +377,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			select6.selectByVisibleText(GenderOfSecondPerson);
 			specificWait();
 			selectForeignCountry(driver, wait, NationalityOfSecondPerson, "country-pax-2", countrySecondPerson);
+			specificWait();
 			WebElement dropdownID2 = driver.findElement(By.id("id-type-2"));
 			smallSleep();
 			dropdownID2.click();
@@ -411,6 +412,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			select8.selectByVisibleText(GenderOfThirdPerson);
 			specificWait();
 			selectForeignCountry(driver, wait, NationalityOfThirdPerson, "country-pax-3", countryThirdPerson);
+			specificWait();
 			WebElement dropdownID3 = driver.findElement(By.id("id-type-3"));
 			smallSleep();
 			dropdownID3.click();
@@ -449,6 +451,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			select10.selectByVisibleText(GenderOfFourthPerson);
 			specificWait();
 			selectForeignCountry(driver, wait, NationalityOfFourthPerson, "country-pax-4", countryFourthPerson);
+			specificWait();
 			WebElement dropdownID4 = driver.findElement(By.id("id-type-4"));
 			smallSleep();
 			dropdownID4.click();
@@ -483,6 +486,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			select12.selectByVisibleText(GenderOfFifthPerson);
 			specificWait();
 			selectForeignCountry(driver, wait, NationalityOfFifthPerson, "country-pax-5", countryFifthPerson);
+			specificWait();
 			WebElement dropdownID5 = driver.findElement(By.id("id-type-5"));
 			smallSleep();
 			dropdownID5.click();
@@ -516,6 +520,7 @@ public class FullFlowWithWaits_Profile1 extends DataProfile1 {
 			select14.selectByVisibleText(GenderOfFifthPerson);
 			specificWait();
 			selectForeignCountry(driver, wait, NationalityOfSixthPerson, "country-pax-6", countrySixthPerson);
+			specificWait();
 			WebElement dropdownID6 = driver.findElement(By.id("id-type-6"));
 			smallSleep();
 			dropdownID6.click();
